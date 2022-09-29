@@ -14,11 +14,23 @@ public interface SetInterface<T> {
     boolean remove(T anEntry);
     
     T remove();
+
     void clear();
+
     boolean contains(T anEntry);
+    
+    /** Counts the number of times a given entry appears in this bag.
+     * @paramanEntry  The entry to be counted.
+     * @return The number of times anEntry appears in the bag.*/
+    int getFrequencyOf(T anEntry);
+
     T[] toArray();
+
     boolean subset(SetInterface<T> rhs);
+
     boolean equals(SetInterface<T> rhs);
+
     LinkedSet<T> union(SetInterface<T> rhs);
+
     String toString();
 }

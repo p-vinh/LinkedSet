@@ -14,13 +14,16 @@ public class LinkedSet<T> implements SetInterface<T> {
     }
 
     public boolean equals(SetInterface<T> rhs) {
-        // TODO Auto-generated method stub
+    
         return false;
     }
     
     public LinkedSet<T> union(SetInterface<T> rhs) {
-        // TODO Auto-generated method stub
-        return null;
+        T[] temp = rhs.toArray();
+        for(T item : temp)
+            if (!contains(item))
+                add(item);  
+        return (LinkedSet<T>) rhs;
     }
     
     public String toString() {
@@ -90,6 +93,21 @@ public class LinkedSet<T> implements SetInterface<T> {
         }
 
         return found;
+    }
+
+    public int getFrequencyOf(T anEntry) {
+        int frequency = 0;
+        int loopCounter = 0;
+        Node curreNode = firstNode;
+
+        while ((loopCounter < numberOfEntries) && (curreNode != null)) {
+            if(anEntry.equals(curreNode.data)) {
+                frequency++;
+            }
+            loopCounter++;
+            curreNode = curreNode.next;
+        }
+        return frequency;
     }
 
     public T[] toArray() {

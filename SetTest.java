@@ -7,7 +7,7 @@ public class SetTest {
         SetInterface<Integer> D = new LinkedSet<>();
 
         int[] setA = {1, 3, 5, 7};
-        int[] setB = {3, 4, 5};
+        int[] setB = {1, 3, 5, 7, 8, 32, 23};
         int[] setC = {1};
 
         addSet(A, setA);
@@ -18,6 +18,9 @@ public class SetTest {
         System.out.println(B.toString());
         System.out.println(C.toString());
         System.out.println(D.toString());
+
+        System.out.println(A.union(B));
+        
 
     }
 
