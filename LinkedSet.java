@@ -10,33 +10,52 @@ public class LinkedSet<T> implements SetInterface<T> {
     
     public boolean subset(SetInterface<T> rhs) {
         Node current = firstNode;
-        T[] temp = rhs.toArray();
         int match = 0;
         
         // Base Case
         if (current == null) return true;
-        else if (current.next == null) {
-            return false;
-        }
-        else
-            for(T item : temp) {
-                if (contains(item))
-                    match++;
-        }
-
+        
+        for(T item : rhs.toArray())
+            if (contains(item))
+                match++;
         return match == getCurrentSize() ? true : false;
     }
 
     public boolean equals(SetInterface<T> rhs) {
+        Node current = firstNode;
+        boolean result = false;
+        int index = 0;
         
-        return false;
+        if (getCurrentSize() == rhs.getCurrentSize()) {
+            LinkedSet<T> temp1 = new LinkedSet<>();
+            LinkedSet<T> temp2 = new LinkedSet<>();
+            T[] bag = rhs.toArray();
+            
+            while((current != null) && (index < numberOfEntries)) {
+                temp1.add(current.data);
+                temp2.add(bag[index]);
+                index++;
+                current = current.next;
+            }
+
+            Node currTemp2 = temp2.firstNode;
+            while(!temp1.isEmpty() && !temp2.isEmpty()) {
+                if (temp1.contains(currTemp2.data)) {
+                    currTemp2 = currTemp2.next;
+                    temp2.remove();
+                }
+            }
+            temp1.clear();
+            result = temp2.isEmpty();
+        }
+        return result;
     }
     
     public LinkedSet<T> union(SetInterface<T> rhs) {
         LinkedSet<T> cBag = new LinkedSet<>();
         
         for(T item : rhs.toArray())
-        add(item);
+            add(item);
         
         T[] temp = toArray();
         for(T item : temp)
