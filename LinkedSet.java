@@ -9,8 +9,24 @@ public class LinkedSet<T> implements SetInterface<T> {
     }
     
     public boolean subset(SetInterface<T> rhs) {
+        Node current = firstNode;
+        int index = 0;
+        int match = 0;
         
-        return false;
+        // Base Case
+        if (current == null) return true;
+        else if (current.next == null) {
+            return false;
+        }
+        else
+            while((current != null) && (index < numberOfEntries)) {
+                if (rhs.contains(current.data))
+                    match++;
+                current = current.next;
+                index++;
+        }
+
+        return match == getCurrentSize() ? true : false;
     }
 
     public boolean equals(SetInterface<T> rhs) {
