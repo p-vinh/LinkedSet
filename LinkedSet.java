@@ -26,16 +26,7 @@ public class LinkedSet<T> implements SetInterface<T> {
     public String toString() {
         Node current = firstNode;
         String str = "";
-
-        
-        // int index = 0;
-        // while((current != null) && (index < numberOfEntries)) {
-        //     str += current.data + " ";
-        //     current = current.next;
-        //     index++;
-        // }
-        traverse(current);
-        return str +"{" + "}";
+        return "{" + traverse(current, str) + "}";
     }
 
     public int getCurrentSize() {
@@ -131,12 +122,10 @@ public class LinkedSet<T> implements SetInterface<T> {
         }
     }
 
-    private void traverse(Node node) {
-        
-        if(node != null) {
-            traverse(node.next);
-            System.out.println(node.data);
-        }
+    private String traverse(Node node, String str) {
+        if (node != null)
+            return node.next != null ? traverse(node.next, str) + ", " + node.data : node.data + "";
+        return "";
     }
 
     private Node getReferenceTo(T anEntry) {

@@ -8,13 +8,16 @@ public class SetTest {
 
         int[] setA = {1, 3, 5, 7};
         int[] setB = {3, 4, 5};
-        int[] setC = {3, 6, 7, 10};
+        int[] setC = {1};
 
         addSet(A, setA);
         addSet(B, setB);
         addSet(C, setC);
 
         System.out.println(A.toString());
+        System.out.println(B.toString());
+        System.out.println(C.toString());
+        System.out.println(D.toString());
 
     }
 
