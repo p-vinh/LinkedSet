@@ -6,7 +6,7 @@ public class SetTest {
         SetInterface<Integer> C = new LinkedSet<>();
         SetInterface<Integer> D = new LinkedSet<>();
 
-        int[] setA = {1};
+        int[] setA = {1, 5 ,6 , 3, 3, 72};
         int[] setB = {1, 2, 3, 4, 5};
         int[] setC = {1};
 
@@ -14,20 +14,20 @@ public class SetTest {
         addSet(B, setB);
         addSet(C, setC);
 
-        System.out.println(A.toString());
-        System.out.println(B.toString());
-        System.out.println(C.toString());
-        System.out.println(D.toString());
+        // System.out.println(A.toString());
+        // System.out.println(B.toString());
+        // System.out.println(C.toString());
+        // System.out.println(D.toString());
 
         System.out.println(A.union(B));
         System.out.println(B.union(C));
 
-        System.out.println(D.subset(A));
-        System.out.println(D.subset(B));
-        System.out.println(D.subset(C));
-        System.out.println(D.subset(D));
+        // System.out.println(D.subset(A));
+        // System.out.println(D.subset(B));
+        // System.out.println(D.subset(C));
+        // System.out.println(D.subset(D));
 
-        System.out.println(B.subset(A));
+        System.out.println(A.subset(B));
 
 
     }

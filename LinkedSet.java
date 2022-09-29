@@ -10,7 +10,7 @@ public class LinkedSet<T> implements SetInterface<T> {
     
     public boolean subset(SetInterface<T> rhs) {
         Node current = firstNode;
-        int index = 0;
+        T[] temp = rhs.toArray();
         int match = 0;
         
         // Base Case
@@ -19,11 +19,9 @@ public class LinkedSet<T> implements SetInterface<T> {
             return false;
         }
         else
-            while((current != null) && (index < numberOfEntries)) {
-                if (rhs.contains(current.data))
+            for(T item : temp) {
+                if (contains(item))
                     match++;
-                current = current.next;
-                index++;
         }
 
         return match == getCurrentSize() ? true : false;
@@ -35,14 +33,14 @@ public class LinkedSet<T> implements SetInterface<T> {
     }
     
     public LinkedSet<T> union(SetInterface<T> rhs) {
+        LinkedSet<T> cBag = new LinkedSet<>();
         
         for(T item : rhs.toArray())
-            add(item);
+        add(item);
         
         T[] temp = toArray();
-        LinkedSet<T> cBag = new LinkedSet<T>();
         for(T item : temp)
-            if (getFrequencyOf(item) >= 1 && !cBag.contains(item))
+            if (!cBag.contains(item))
                 cBag.add(item);
         return cBag;
     }
@@ -95,9 +93,8 @@ public class LinkedSet<T> implements SetInterface<T> {
     }
 
     public void clear() {
-        while(!isEmpty()) {
+        while(!isEmpty())
             remove();
-        }
     }
 
     public boolean contains(T anEntry) {
