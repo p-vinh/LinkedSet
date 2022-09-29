@@ -20,7 +20,7 @@ public class SetTest {
         System.out.println(D.toString());
 
         System.out.println(A.union(B));
-
+        System.out.println(B.union(C));
 
     }
 

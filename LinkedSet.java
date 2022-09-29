@@ -19,8 +19,9 @@ public class LinkedSet<T> implements SetInterface<T> {
     }
     
     public LinkedSet<T> union(SetInterface<T> rhs) {
-        while(!rhs.isEmpty())
-            add(rhs.remove());
+        
+        for(T item : rhs.toArray())
+            add(item);
         
         T[] temp = toArray();
         LinkedSet<T> cBag = new LinkedSet<T>();
