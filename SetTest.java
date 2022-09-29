@@ -6,8 +6,8 @@ public class SetTest {
         SetInterface<Integer> C = new LinkedSet<>();
         SetInterface<Integer> D = new LinkedSet<>();
 
-        int[] setA = {1, 3, 5, 7};
-        int[] setB = {1, 3, 5, 7, 8, 32, 23};
+        int[] setA = {1, 2, 3};
+        int[] setB = {2, 3, 4, 5};
         int[] setC = {1};
 
         addSet(A, setA);
@@ -20,7 +20,7 @@ public class SetTest {
         System.out.println(D.toString());
 
         System.out.println(A.union(B));
-        
+
 
     }
 
