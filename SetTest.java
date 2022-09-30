@@ -24,12 +24,12 @@ public class SetTest {
         A.clear();
         B.clear();
 
-        // System.out.println(A.toString());
-        // System.out.println(B.toString());
-        // System.out.println(C.toString());
-        // System.out.println(D.toString());
-
-        // System.out.println(A.union(B));
+        addSet(A, new int[] {1});
+        addSet(B, new int[] {2, 3});
+        System.out.println(A.equals(B));
+        A.clear();
+        B.clear();
+        
         
 
         // System.out.println(D.subset(A));
