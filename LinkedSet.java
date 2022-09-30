@@ -18,7 +18,7 @@ public class LinkedSet<T> implements SetInterface<T> {
         for(T item : rhs.toArray())
             if (contains(item))
                 match++;
-        return match == getCurrentSize() ? true : false;
+        return match == rhs.getCurrentSize() ? true : false;
     }
 
     public boolean equals(SetInterface<T> rhs) {
@@ -51,14 +51,13 @@ public class LinkedSet<T> implements SetInterface<T> {
         return result;
     }
     
-    public LinkedSet<T> union(SetInterface<T> rhs) {
-        LinkedSet<T> cBag = new LinkedSet<>();
+    public SetInterface<T> union(SetInterface<T> rhs) {
+        SetInterface<T> cBag = new LinkedSet<>();
         
         for(T item : rhs.toArray())
-            add(item);
+            cBag.add(item);
         
-        T[] temp = toArray();
-        for(T item : temp)
+        for(T item : toArray())
             if (!cBag.contains(item))
                 cBag.add(item);
         return cBag;

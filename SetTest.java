@@ -6,13 +6,23 @@ public class SetTest {
         SetInterface<Integer> C = new LinkedSet<>();
         SetInterface<Integer> D = new LinkedSet<>();
 
-        int[] setA = {1};
-        int[] setB = {2, 3};
-        int[] setC = {1};
+        addSet(A, new int[] {1, 2, 3});
+        addSet(B, new int[] {2, 1, 3});
+        System.out.println(A.equals(B));
+        A.clear();
+        B.clear();
 
-        addSet(A, setA);
-        addSet(B, setB);
-        addSet(C, setC);
+        addSet(A, new int[] {1});
+        addSet(B, new int[] {1, 2});
+        System.out.println(A.subset(B));
+        A.clear();
+        B.clear();
+
+        addSet(A, new int[] {1, 2, 3});
+        addSet(B, new int[] {2, 3, 4, 5});
+        System.out.println(A.union(B));
+        A.clear();
+        B.clear();
 
         // System.out.println(A.toString());
         // System.out.println(B.toString());
@@ -21,17 +31,12 @@ public class SetTest {
 
         // System.out.println(A.union(B));
         
-        // Fix union
-        D = B.union(C);
-        System.out.println(D);
 
         // System.out.println(D.subset(A));
         // System.out.println(D.subset(B));
         // System.out.println(D.subset(C));
         // System.out.println(D.subset(D));
 
-        // set B changes with union so it will return true
-        System.out.println(A.subset(B));
 
         // System.out.println(A.equals(B));
 
@@ -39,8 +44,7 @@ public class SetTest {
     }
 
     private static void addSet(SetInterface<Integer> set, int[] num) {
-        for (int i = 0; i < num.length; i++) {
-            set.add(num[i]);
-        }
+        for (int index : num)
+            set.add(index);
     }
 }

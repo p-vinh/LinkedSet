@@ -30,7 +30,7 @@ public interface SetInterface<T> {
 
     boolean equals(SetInterface<T> rhs);
 
-    LinkedSet<T> union(SetInterface<T> rhs);
+    SetInterface<T> union(SetInterface<T> rhs);
 
     String toString();
 }
