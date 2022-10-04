@@ -6,40 +6,42 @@ public class SetTest {
         SetInterface<Integer> C = new LinkedSet<>();
         SetInterface<Integer> D = new LinkedSet<>();
 
-        addSet(A, new int[] {1, 2, 3});
-        addSet(B, new int[] {2, 1, 3});
+        System.out.println("Checking if set A: {1,2,3} is equal to set B: {2,1,3}");
+        addSet(A, new int[] {1,2,3});
+        addSet(B, new int[] {2,1,3});
         System.out.println(A.equals(B));
         A.clear();
         B.clear();
 
         addSet(A, new int[] {1});
-        addSet(B, new int[] {1, 2});
+        addSet(B, new int[] {1,2});
         System.out.println(A.subset(B));
         A.clear();
         B.clear();
 
-        addSet(A, new int[] {1, 2, 3});
-        addSet(B, new int[] {2, 3, 4, 5});
+        addSet(A, new int[] {1,2,3});
+        addSet(B, new int[] {2,3,4,5});
         System.out.println(A.union(B));
         A.clear();
         B.clear();
 
         addSet(A, new int[] {1});
-        addSet(B, new int[] {2, 3});
+        addSet(B, new int[] {2,3});
         System.out.println(A.equals(B));
         A.clear();
         B.clear();
-        
-        
 
-        // System.out.println(D.subset(A));
-        // System.out.println(D.subset(B));
-        // System.out.println(D.subset(C));
-        // System.out.println(D.subset(D));
+        addSet(A, new int[] {});
+        addSet(B, new int[] {});
+        System.out.println(A.equals(B));
+        A.clear();
+        B.clear();
 
-
-        // System.out.println(A.equals(B));
-
+        addSet(A, new int[] {});
+        addSet(B, new int[] {1,2,3,4});
+        System.out.println(A.equals(B));
+        A.clear();
+        B.clear();
 
     }
 
