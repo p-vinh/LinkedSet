@@ -16,16 +16,16 @@ public class LinkedSet<T> implements SetInterface<T> {
      */
     public boolean subset(SetInterface<T> rhs) {
         Node current = firstNode;
-        int match = 0;
-
+        int count = 0;
         // Base Case
         if (current == null)
             return true;
 
+
         for (T item : rhs.toArray())
-            if (contains(item))
-                match++;
-        return match == rhs.getCurrentSize() ? true : false;
+            if(contains(item))
+                count++;
+        return count == getCurrentSize() ? true : false;
     }
 
     /**
