@@ -1,3 +1,12 @@
+//  Name:   Pham, Vinh 
+//  Project:  #2 
+//  Due:        7 October 2022 
+//  Course:  cs-2400-02-f22 
+// 
+//  Description: 
+//    Implementation of Set ADT using LinkedList.
+//    With union, equals, and subset methods introduced.
+
 public class SetTest {
     public static void main(String[] args) {
         
